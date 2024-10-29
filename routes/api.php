@@ -35,7 +35,8 @@ Route::namespace('Api')->group(function() {
         Route::apiResource('permissions', 'PermissionController')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);
       
         Route::apiResource('empleados', 'empleados\EmpleadosController')->middleware('permission:'.Acl::PERMISSION_PERMISSION_MANAGE);
-    
+        Route::apiResource('empresas', 'empresas\EmpresasController')->middleware('permission:'.Acl::PERMISSION_PERMISSION_MANAGE);
+        Route::get('todasEmpresas', 'empresas\EmpresasController@getEmpresas');
         // Custom routes
         Route::put('users/{user}', 'UserController@update');
         Route::get('users/{user}/permissions', 'UserController@permissions')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);

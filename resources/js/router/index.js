@@ -9,6 +9,7 @@ import Layout from '@/layout';
 /* Router for modules */
 import adminRoutes from './modules/admin';
 import empleadosRoute from './modules/empleados';
+import empresasRoute from './modules/empresas';
 
 export const constantRoutes = [
   {
@@ -55,7 +56,7 @@ export const constantRoutes = [
       },
     ],
   },
-  {
+  /* {
     path: '/profile',
     component: Layout,
     redirect: '/profile/edit',
@@ -67,8 +68,9 @@ export const constantRoutes = [
         meta: { title: 'userProfile', icon: 'user', noCache: true },
       },
     ],
-  },
+  }, */
   empleadosRoute,
+  empresasRoute,
 ];
 
 export const asyncRoutes = [

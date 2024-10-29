@@ -91,7 +91,7 @@ export default {
     return {
       loginForm: {
         email: 'admin@nomina.dev',
-        password: 'laravue',
+        password: '',
       },
       loginRules: {
         email: [{ required: true, trigger: 'blur', validator: validateEmail }],

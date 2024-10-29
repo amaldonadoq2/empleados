@@ -14,7 +14,7 @@ const adminRoutes = {
   },
   children: [
     /** User managements */
-    {
+    /* {
       path: 'users/edit/:id(\\d+)',
       component: () => import('@/views/users/UserProfile'),
       name: 'UserProfile',
@@ -24,7 +24,7 @@ const adminRoutes = {
         permissions: ['manage user'],
       },
       hidden: true,
-    },
+    }, */
     {
       path: 'users',
       component: () => import('@/views/users/List'),

@@ -15,25 +15,24 @@ class EmpleadosController extends Controller
      */
     public function index(Request $request)
     {
-        try{
-            $query = Empleados::query();
-            $total = $query->count();
+        try {
+        $query = Empleados::with('empresa'); 
+        $total = $query->count();
 
-            $order = config('vue_table_var.order');
-            if (isset($request->sort) && isset($request->sort['order']) && isset($request->sort['prop']) && $request->sort['prop'] !== null && $request->sort['order'] !== null) {
-                $query = $query->orderBy($request->sort['prop'], $order[$request->sort['order']]);
-            } else {
-                $query = $query->orderBy('created_at', 'desc');
-            }
-            $data = $query->get();
-
-            return response()->json(new JsonResponse(['items' => $data, 'total' => $total]));
+        $order = config('vue_table_var.order');
+        if (isset($request->sort) && isset($request->sort['order']) && isset($request->sort['prop']) && $request->sort['prop'] !== null && $request->sort['order'] !== null) {
+            $query = $query->orderBy($request->sort['prop'], $order[$request->sort['order']]);
+        } else {
+            $query = $query->orderBy('created_at', 'desc');
         }
-        catch(Exception $e) {
-            Log::error('[EmpleadosController] error in obtener_Empleados '.$e->getMessage(). ' In Line: ' . $e->getLine());
+        $data = $query->get();
 
-            return response()->json(['email' => 'Something went wrong']);
-        }
+        return response()->json(new JsonResponse(['items' => $data, 'total' => $total]));
+    } catch (Exception $e) {
+        Log::error('[EmpleadosController] error in obtener_Empleados ' . $e->getMessage() . ' In Line: ' . $e->getLine());
+
+        return response()->json(['email' => 'Something went wrong']);
+    }
     }
 
     /**
@@ -119,4 +118,5 @@ class EmpleadosController extends Controller
             Log::error('[EmpleadosController] error in destroy '.$e->getMessage(). ' In Line: ' . $e->getLine());
         }
     }
+    
 }

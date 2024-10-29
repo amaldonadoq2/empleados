@@ -99,27 +99,14 @@
     >
       <el-table-column label="Nombre">
         <template slot-scope="{ row }">
-          <span @click="handleUpdate(row)">{{ row.nombre }}</span>
+          <span class="link-type" @click="handleUpdate(row)">{{
+            row.nombre
+          }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="DPI">
+      <el-table-column label="Dirección">
         <template slot-scope="{ row }">
-          <span>{{ row.dpi }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Empresa">
-        <template slot-scope="{ row }">
-          <span>{{ row.empresa ? row.empresa.nombre : '' }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Salario Base">
-        <template slot-scope="{ row }">
-          <span>Q{{ row.salario_base }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="Fecha Contratacion">
-        <template slot-scope="{ row }">
-          <span>{{ row.fecha_contratacion }}</span>
+          <span>{{ row.direccion }}</span>
         </template>
       </el-table-column>
       <el-table-column
@@ -164,34 +151,11 @@
         <el-form-item label="Nombre" prop="nombre">
           <el-input v-model="temp.nombre" />
         </el-form-item>
-        <el-form-item label="DPI" prop="dpi">
-          <el-input v-model="temp.dpi" />
+        <el-form-item label="Direccion" prop="direccion">
+          <el-input v-model="temp.direccion" />
         </el-form-item>
-        <el-form-item label="Salario Base" prop="salario_base">
-          <el-input v-model="temp.salario_base" />
-        </el-form-item>
-        <el-form-item label="Fecha de Contratación" prop="fecha_contratacion">
-          <el-date-picker
-            v-model="temp.fecha_contratacion"
-            type="date"
-            placeholder="Seleccione la fecha"
-          />
-        </el-form-item>
-        <el-form-item label="Foto" prop="foto">
-          <el-input v-model="temp.foto" />
-        </el-form-item>
-        <el-form-item label="Empresa" prop="empresa_id">
-          <el-select
-            v-model="temp.empresa_id"
-            placeholder="Seleccione la empresa"
-          >
-            <el-option
-              v-for="empresa in empresas"
-              :key="empresa.id"
-              :label="empresa.nombre"
-              :value="empresa.id"
-            />
-          </el-select>
+        <el-form-item label="Telefono" prop="telefono">
+          <el-input v-model="temp.telefono" />
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
@@ -226,8 +190,6 @@
 </template>
 
 <script>
-import moment from 'moment';
-import EmpleadosResource from '@/api/empleados';
 import EmpresasResource from '@/api/empresas';
 import {
   fetchList,
@@ -246,8 +208,8 @@ const calendarTypeOptions = [
   { key: 'VI', display_name: 'Vietnam' },
 ];
 
-const empleadosResource = new EmpleadosResource();
 const empresasResource = new EmpresasResource();
+
 // arr to obj ,such as { CN : "China", US : "USA" }
 const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
   acc[cur.key] = cur.display_name;
@@ -295,11 +257,8 @@ export default {
       showReviewer: false,
       temp: {
         nombre: '',
-        dpi: '',
-        salario_base: '',
-        fecha_contratacion: '',
-        foto: '',
-        empresa_id: '',
+        direccion: '',
+        telefono: '',
       },
       dialogFormVisible: false,
       dialogStatus: '',
@@ -332,21 +291,19 @@ export default {
         keyword: '',
         role: '',
       },
-      empresas: [],
+      columns: [
+        { title: 'Placa', prop: 'num_placa' },
+        { title: 'Acciones', prop: 'action' },
+      ],
     };
   },
   created() {
     this.getList();
-    this.getEmpresas();
   },
   methods: {
-    async getEmpresas() {
-      const { data } = await empresasResource.list();
-      this.empresas = data.items;
-    },
     async getList() {
       this.listLoading = true;
-      const { data } = await empleadosResource.list(this.query);
+      const { data } = await empresasResource.list(this.query);
       this.list = data.items;
       this.total = data.total;
       // Just to simulate the time of the request
@@ -357,9 +314,9 @@ export default {
       this.getList();
     },
     handleModifyStatus(row, status) {
-      empleadosResource.destroy(row.id).then((response) => {
+      empresasResource.destroy(row.id).then((response) => {
         this.$message({
-          message: 'Eliminado',
+          message: 'Exitoso',
           type: 'success',
         });
       });
@@ -392,17 +349,14 @@ export default {
       });
     },
     createData() {
-      this.temp.fecha_contratacion = moment(
-        this.temp.fecha_contratacion
-      ).format('YYYY-MM-DD');
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
-          empleadosResource.store(this.temp).then(() => {
+          empresasResource.store(this.temp).then(() => {
             this.list.unshift(this.temp);
             this.dialogFormVisible = false;
             this.$notify({
               title: 'Success',
-              message: 'Creado',
+              message: 'Creado Correctamente',
               type: 'success',
               duration: 2000,
             });
@@ -419,13 +373,10 @@ export default {
       });
     },
     updateData() {
-      this.temp.fecha_contratacion = moment(
-        this.temp.fecha_contratacion
-      ).format('YYYY-MM-DD');
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp);
-          empleadosResource.update(this.temp.id, this.temp).then(() => {
+          empresasResource.update(this.temp.id, this.temp).then(() => {
             for (const v of this.list) {
               if (v.id === this.temp.id) {
                 const index = this.list.indexOf(v);
