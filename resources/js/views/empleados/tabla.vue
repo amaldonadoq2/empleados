@@ -179,7 +179,7 @@
 </template>
 
 <script>
-import MultasResource from '@/api/multas';
+import EmpleadosResource from '@/api/empleados';
 import {
   fetchList,
   fetchPv,
@@ -197,7 +197,7 @@ const calendarTypeOptions = [
   { key: 'VI', display_name: 'Vietnam' },
 ];
 
-const multasResource = new MultasResource();
+const multasResource = new EmpleadosResource();
 
 // arr to obj ,such as { CN : "China", US : "USA" }
 const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {

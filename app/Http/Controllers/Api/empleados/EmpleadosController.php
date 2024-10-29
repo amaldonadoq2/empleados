@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Multas;
 use Illuminate\Http\Request;
 use App\Laravue\JsonResponse;
-class MultasController extends Controller
+class EmpleadosController extends Controller
 {
     /**
      * Display a listing of the resource.

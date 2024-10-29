@@ -8,7 +8,7 @@ import Layout from '@/layout';
 
 /* Router for modules */
 import adminRoutes from './modules/admin';
-import multasRoutes from './modules/multas';
+import empleadosRoute from './modules/empleados';
 
 export const constantRoutes = [
   {
@@ -68,7 +68,7 @@ export const constantRoutes = [
       },
     ],
   },
-  multasRoutes,
+  empleadosRoute,
 ];
 
 export const asyncRoutes = [

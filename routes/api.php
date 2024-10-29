@@ -34,7 +34,7 @@ Route::namespace('Api')->group(function() {
         Route::apiResource('users', 'UserController')->middleware('permission:' . Acl::PERMISSION_USER_MANAGE);
         Route::apiResource('permissions', 'PermissionController')->middleware('permission:' . Acl::PERMISSION_PERMISSION_MANAGE);
       
-        Route::apiResource('multas', 'multas\MultasController')->middleware('permission:'.Acl::PERMISSION_PERMISSION_MANAGE);
+        Route::apiResource('empleados', 'empleados\EmpleadosController')->middleware('permission:'.Acl::PERMISSION_PERMISSION_MANAGE);
     
         // Custom routes
         Route::put('users/{user}', 'UserController@update');

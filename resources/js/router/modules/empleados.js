@@ -1,10 +1,10 @@
 import Layout from '@/layout';
 
 const tableRoutes = {
-  path: '/multas',
+  path: '/empleados',
   component: Layout,
-  redirect: '/multas/index',
-  name: 'multas',
+  redirect: '/empleados/index',
+  name: 'empleados',
   meta: {
     title: 'Multas',
     icon: 'table',
@@ -13,9 +13,9 @@ const tableRoutes = {
   children: [
     {
       path: 'index',
-      component: () => import('@/views/multas/tabla'),
-      name: 'Multas',
-      meta: { title: 'Multas' },
+      component: () => import('@/views/empleados/tabla'),
+      name: 'Empleados',
+      meta: { title: 'Empleados' },
     },
   ],
 };
