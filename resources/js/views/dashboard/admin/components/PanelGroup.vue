@@ -6,10 +6,10 @@
           <svg-icon icon-class="peoples" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">cambio evaluacion</div>
+          <div class="card-panel-text">Prestamos</div>
           <count-to
             :start-val="0"
-            :end-val="102400"
+            :end-val="100"
             :duration="2600"
             class="card-panel-num"
           />
@@ -22,10 +22,10 @@
           <svg-icon icon-class="message" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text"> Solicitudes de ausencias o permisos</div>
+          <div class="card-panel-text">Permisos</div>
           <count-to
             :start-val="0"
-            :end-val="81212"
+            :end-val="400"
             :duration="3000"
             class="card-panel-num"
           />
@@ -41,7 +41,7 @@
           <div class="card-panel-text">Compras</div>
           <count-to
             :start-val="0"
-            :end-val="9280"
+            :end-val="600"
             :duration="3200"
             class="card-panel-num"
           />

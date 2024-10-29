@@ -54,8 +54,7 @@ export default {
         tooltip: {
           trigger: 'axis',
           axisPointer: {
-            // Axis indicator
-            type: 'shadow', // Default is 'line', valid value can be 'shadow' | 'line'
+            type: 'shadow',
           },
         },
         radar: {
@@ -73,14 +72,16 @@ export default {
             },
           },
           indicator: [
-            { name: 'Anticipos quincenales', max: 10000 },
-            { name: 'pagos realizados por semana', max: 20000 }         
+            { name: 'Nomina de empleados', max: 50000 },
+            { name: 'Prestamos', max: 30000 },
+            { name: 'Salarios', max: 40000 },
+            { name: 'Permisos', max: 10000 },
           ],
         },
         legend: {
           left: 'center',
           bottom: '10',
-          data: ['Presupuesto asignado', 'Gasto esperado', 'Gasto real'],
+          data: ['Nomina de empleados', 'Prestamos', 'Salarios', 'Permisos'],
         },
         series: [
           {
@@ -97,15 +98,15 @@ export default {
             },
             data: [
               {
-                value: [5000, 7000, 12000, 11000, 15000, 14000],
+                value: [45000, 20000, 35000, 8000],
                 name: 'Presupuesto asignado',
               },
               {
-                value: [4000, 9000, 15000, 15000, 13000, 11000],
+                value: [40000, 25000, 30000, 9000],
                 name: 'Gasto esperado',
               },
               {
-                value: [5500, 11000, 12000, 15000, 12000, 12000],
+                value: [42000, 22000, 32000, 8500],
                 name: 'Gasto real',
               },
             ],

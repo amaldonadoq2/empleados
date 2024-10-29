@@ -63,13 +63,13 @@ const filters = {
 };
 const defalutList = [
   { text: 'Realizar Compras a proveedores', done: false },
-  { text: 'Gestionar la materia prima', done: false },
-  { text: 'Revisar las ventas y alquileres', done: false },
-  { text: 'Calendarizar proyectos', done: true },
-  { text: 'Supervisar proyectos de construccion', done: true },
-  { text: 'Supervisar planta de materia prima', done: true },
+  { text: 'Gestionar los prestamos', done: false },
+  { text: 'Revisar las ventas', done: false },
+  { text: 'Calendarizar pagos', done: true },
+  { text: 'Supervisar permisos', done: true },
+  { text: 'Supervisar ventas', done: true },
   { text: 'Transportar productos', done: true },
-  { text: 'Revisar por procesos de extraccion de materia prima', done: true },
+  { text: 'Revisar Salarios', done: true },
 ];
 export default {
   components: { Todo },
