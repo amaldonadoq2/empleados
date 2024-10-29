@@ -1,7 +1,7 @@
 <template>
   <el-card v-if="user.name">
     <el-tabs v-model="activeActivity" @tab-click="handleClick">
-      <el-tab-pane label="Activity" name="first">
+      <!-- <el-tab-pane label="Activity" name="first">
         <div class="user-activity">
           <div class="post">
             <div class="user-block">
@@ -9,7 +9,7 @@
                 class="img-circle"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDkaQO69Fro8SZLTVZQ75JH2R0T-sn5yIA_lKGwvvgQ0R0BoQtUQ"
                 alt="user image"
-              >
+              />
               <span class="username text-muted">
                 <a href="#">Iron Man</a>
                 <a href="#" class="pull-right btn-box-tool">
@@ -20,10 +20,10 @@
             </div>
             <p>
               Lorem ipsum represents a long-held tradition for designers,
-              typographers and the like. Some people hate it and argue for
-              its demise, but others ignore the hate as they create awesome
-              tools to help create filler text for everyone from bacon lovers
-              to Charlie Sheen fans.
+              typographers and the like. Some people hate it and argue for its
+              demise, but others ignore the hate as they create awesome tools to
+              help create filler text for everyone from bacon lovers to Charlie
+              Sheen fans.
             </p>
             <ul class="list-inline">
               <li>
@@ -38,8 +38,7 @@
               </li>
               <li class="pull-right">
                 <a href="#" class="link-black text-sm">
-                  <svg-icon icon-class="comment" />Comments
-                  (5)
+                  <svg-icon icon-class="comment" />Comments (5)
                 </a>
               </li>
             </ul>
@@ -51,7 +50,7 @@
                 class="img-circle"
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMMN-8f9CQQ3MKJpboBJIqaiJ2Wus2Tf4w_vx9STtalxrY3qGJ"
                 alt="user image"
-              >
+              />
               <span class="username text-muted">
                 <a href="#">Captain American</a>
                 <a href="#" class="pull-right btn-box-tool">
@@ -62,15 +61,13 @@
             </div>
             <p>
               Lorem ipsum represents a long-held tradition for designers,
-              typographers and the like. Some people hate it and argue for
-              its demise, but others ignore the hate as they create awesome
-              tools to help create filler text for everyone from bacon lovers
-              to Charlie Sheen fans.
+              typographers and the like. Some people hate it and argue for its
+              demise, but others ignore the hate as they create awesome tools to
+              help create filler text for everyone from bacon lovers to Charlie
+              Sheen fans.
             </p>
             <el-input placeholder="Response">
-              <el-button slot="append">
-                Send
-              </el-button>
+              <el-button slot="append"> Send </el-button>
             </el-input>
           </div>
           <div class="post">
@@ -79,7 +76,7 @@
                 class="img-circle img-bordered-sm"
                 src="https://cdn3.iconfinder.com/data/icons/movies-3/32/daredevil-superhero-marvel-comics-mutant-avatar-512.png"
                 alt="User Image"
-              >
+              />
               <span class="username">
                 <a href="#">Daredevil</a>
                 <a href="#" class="pull-right btn-box-tool">
@@ -91,7 +88,7 @@
             <div class="user-images">
               <el-carousel :interval="6000" type="card" height="200px">
                 <el-carousel-item v-for="item in carouselImages" :key="item">
-                  <img :src="item" class="image">
+                  <img :src="item" class="image" />
                 </el-carousel-item>
               </el-carousel>
             </div>
@@ -108,16 +105,15 @@
               </li>
               <li class="pull-right">
                 <a href="#" class="link-black text-sm">
-                  <svg-icon icon-class="comment" />Comments
-                  (5)
+                  <svg-icon icon-class="comment" />Comments (5)
                 </a>
               </li>
             </ul>
             <el-input placeholder="Type a comment" />
           </div>
         </div>
-      </el-tab-pane>
-      <el-tab-pane label="Timeline" name="second">
+      </el-tab-pane> -->
+      <!--  <el-tab-pane label="Timeline" name="second">
         <div class="block">
           <el-timeline>
             <el-timeline-item timestamp="2019/4/17" placement="top">
@@ -147,7 +143,7 @@
             </el-timeline-item>
           </el-timeline>
         </div>
-      </el-tab-pane>
+      </el-tab-pane> -->
       <el-tab-pane v-loading="updating" label="Account" name="third">
         <el-form-item label="Name">
           <el-input v-model="user.name" :disabled="user.role === 'admin'" />
@@ -156,7 +152,11 @@
           <el-input v-model="user.email" :disabled="user.role === 'admin'" />
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" :disabled="user.role === 'admin'" @click="onSubmit">
+          <el-button
+            type="primary"
+            :disabled="user.role === 'admin'"
+            @click="onSubmit"
+          >
             Update
           </el-button>
         </el-form-item>
@@ -185,7 +185,7 @@ export default {
   },
   data() {
     return {
-      activeActivity: 'first',
+      activeActivity: 'third',
       carouselImages: [
         'https://cdn.laravue.dev/photo1.png',
         'https://cdn.laravue.dev/photo2.png',
@@ -203,7 +203,7 @@ export default {
       this.updating = true;
       userResource
         .update(this.user.id, this.user)
-        .then(response => {
+        .then((response) => {
           this.updating = false;
           this.$message({
             message: 'User information has been updated successfully',
@@ -211,7 +211,7 @@ export default {
             duration: 5 * 1000,
           });
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           this.updating = false;
         });
@@ -223,7 +223,8 @@ export default {
 <style lang="scss" scoped>
 .user-activity {
   .user-block {
-    .username, .description {
+    .username,
+    .description {
       display: block;
       margin-left: 50px;
       padding: 2px 0;
@@ -270,7 +271,8 @@ export default {
       font-size: 13px;
     }
     .link-black {
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: #999;
       }
     }
@@ -287,7 +289,7 @@ export default {
     background-color: #99a9bf;
   }
 
-  .el-carousel__item:nth-child(2n+1) {
+  .el-carousel__item:nth-child(2n + 1) {
     background-color: #d3dce6;
   }
 }
