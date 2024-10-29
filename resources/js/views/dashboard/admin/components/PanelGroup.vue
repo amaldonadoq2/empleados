@@ -22,7 +22,7 @@
           <svg-icon icon-class="message" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">Solicitudes de construccion</div>
+          <div class="card-panel-text"> Solicitudes de ausencias o permisos</div>
           <count-to
             :start-val="0"
             :end-val="81212"
@@ -54,7 +54,7 @@
           <svg-icon icon-class="shopping" class-name="card-panel-icon" />
         </div>
         <div class="card-panel-description">
-          <div class="card-panel-text">Ventas y Alquileres</div>
+          <div class="card-panel-text">Comisiones de ventas</div>
           <count-to
             :start-val="0"
             :end-val="13600"

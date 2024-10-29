@@ -70,7 +70,7 @@ export default {
     administrator: 'Administrador',
     users: 'Usuarios',
     userProfile: 'Perfil de usuario',
-    multas: 'Multas',
+    empleados: 'Empleados',
   },
   navbar: {
     logOut: 'Cerrar Sesión',

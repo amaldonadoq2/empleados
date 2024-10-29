@@ -6,7 +6,7 @@ const tableRoutes = {
   redirect: '/empleados/index',
   name: 'empleados',
   meta: {
-    title: 'Multas',
+    title: 'Empleados',
     icon: 'table',
     permissions: ['view menu table'],
   },

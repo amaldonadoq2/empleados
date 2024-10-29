@@ -84,7 +84,7 @@ export default {
         ],
         series: [
           {
-            name: 'Mineria',
+            name: 'Gastos en nómina',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',
@@ -92,7 +92,7 @@ export default {
             animationDuration,
           },
           {
-            name: 'Materia Prima',
+            name: ', comisiones',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',
@@ -100,7 +100,7 @@ export default {
             animationDuration,
           },
           {
-            name: 'Ventas y Alquileres',
+            name: 'bonificaciones',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',
@@ -108,29 +108,13 @@ export default {
             animationDuration,
           },
           {
-            name: 'Transporte Materia Prima',
+            name: 'préstamos',
             type: 'bar',
             stack: 'vistors',
             barWidth: '60%',
             data: [30, 52, 80, 80, 90, 90, 210],
             animationDuration,
-          },
-          {
-            name: 'Transporte Productos',
-            type: 'bar',
-            stack: 'vistors',
-            barWidth: '60%',
-            data: [25, 40, 200, 334, 390, 330, 220],
-            animationDuration,
-          },
-          {
-            name: 'Servicios de  Construccion',
-            type: 'bar',
-            stack: 'vistors',
-            barWidth: '60%',
-            data: [28, 45, 150, 302, 305, 330, 220],
-            animationDuration,
-          },
+          }
         ],
       });
     },

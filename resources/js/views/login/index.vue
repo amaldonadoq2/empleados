@@ -90,7 +90,7 @@ export default {
     };
     return {
       loginForm: {
-        email: 'admin@laravue.dev',
+        email: 'admin@nomina.dev',
         password: 'laravue',
       },
       loginRules: {

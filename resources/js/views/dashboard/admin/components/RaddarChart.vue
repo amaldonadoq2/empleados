@@ -73,12 +73,8 @@ export default {
             },
           },
           indicator: [
-            { name: 'Ventas', max: 10000 },
-            { name: 'Administración', max: 20000 },
-            { name: 'Tecnologías de la información', max: 20000 },
-            { name: 'Atención al cliente', max: 20000 },
-            { name: 'Desarrollo', max: 20000 },
-            { name: 'Marketing', max: 20000 },
+            { name: 'Anticipos quincenales', max: 10000 },
+            { name: 'pagos realizados por semana', max: 20000 }         
           ],
         },
         legend: {

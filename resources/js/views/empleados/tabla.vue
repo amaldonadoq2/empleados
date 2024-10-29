@@ -197,7 +197,7 @@ const calendarTypeOptions = [
   { key: 'VI', display_name: 'Vietnam' },
 ];
 
-const multasResource = new EmpleadosResource();
+const empleadosResource = new EmpleadosResource();
 
 // arr to obj ,such as { CN : "China", US : "USA" }
 const calendarTypeKeyValue = calendarTypeOptions.reduce((acc, cur) => {
@@ -290,7 +290,7 @@ export default {
   methods: {
     async getList() {
       this.listLoading = true;
-      const { data } = await multasResource.list(this.query);
+      const { data } = await empleadosResource.list(this.query);
       this.list = data.items;
       this.total = data.total;
       // Just to simulate the time of the request
@@ -301,7 +301,7 @@ export default {
       this.getList();
     },
     handleModifyStatus(row, status) {
-      multasResource.destroy(row.id).then((response) => {
+      empleadosResource.destroy(row.id).then((response) => {
         this.$message({
           message: 'Successful operation',
           type: 'success',
@@ -338,7 +338,7 @@ export default {
     createData() {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
-          multasResource.store(this.temp).then(() => {
+          empleadosResource.store(this.temp).then(() => {
             this.list.unshift(this.temp);
             this.dialogFormVisible = false;
             this.$notify({
@@ -363,7 +363,7 @@ export default {
       this.$refs['dataForm'].validate((valid) => {
         if (valid) {
           const tempData = Object.assign({}, this.temp);
-          multasResource.update(this.temp.id, this.temp).then(() => {
+          empleadosResource.update(this.temp.id, this.temp).then(() => {
             for (const v of this.list) {
               if (v.id === this.temp.id) {
                 const index = this.list.indexOf(v);

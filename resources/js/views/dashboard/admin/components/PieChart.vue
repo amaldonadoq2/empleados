@@ -57,12 +57,10 @@ export default {
           left: 'center',
           bottom: '10',
           data: [
-            'Minera',
-            'Planta Materia Prima',
-            'Ventas y Alquileres',
-            'Transporte Materia Prima',
-            'Transporte de Productos',
-            'Servicios de Construccion',
+            'Gastos en nómina',
+            'Comisiones',
+            'Bonificaciones',
+            'Préstamos'
           ],
         },
         calculable: true,
